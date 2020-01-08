@@ -1,0 +1,11 @@
+<project version="Crimson Editor 3.60">
+	<localfile path="C:\Users\podes\Documents\Projects\Demos\includes\c64.lib" />
+	<localfile path="C:\Users\podes\Documents\Projects\Demos\VideoPlayer\VideoPlayer.asm" />
+</project>
+
+<workspace version="Crimson Editor 3.60">
+	<localfile path="C:\Users\podes\Documents\Projects\Demos\VideoPlayer\VideoPlayer.asm" linenum="138" placement="2:3:-1:-1:-8:-31:0:0:939:279" />
+	<localfile path="C:\Users\podes\Documents\Projects\Demos\VideoPlayer\VideoPlayer.prj" linenum="11" placement="0:1:-1:-1:-8:-31:78:78:1017:357" />
+	<localfile path="C:\Users\podes\Documents\Projects\Demos\includes\c64.lib" linenum="12" placement="0:1:-1:-1:-8:-31:130:130:1073:413" />
+</workspace>
+
