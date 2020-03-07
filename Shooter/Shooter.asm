@@ -27,22 +27,22 @@ start:
 	sta vic.spriteYSize
 	sta vic.spriteXSize
     lda #128+64
+    sta sprite0Ptr+$2400
     sta sprite0Ptr+$2800
-    sta sprite0Ptr+$2c00
     lda #128+64+1
+    sta sprite1Ptr+$2400
     sta sprite1Ptr+$2800
-    sta sprite1Ptr+$2c00
     lda #128+64+4
+    sta sprite3Ptr+$2400
+    sta sprite4Ptr+$2400
+    sta sprite5Ptr+$2400
+    sta sprite6Ptr+$2400
+    sta sprite7Ptr+$2400
     sta sprite3Ptr+$2800
     sta sprite4Ptr+$2800
     sta sprite5Ptr+$2800
     sta sprite6Ptr+$2800
     sta sprite7Ptr+$2800
-    sta sprite3Ptr+$2c00
-    sta sprite4Ptr+$2c00
-    sta sprite5Ptr+$2c00
-    sta sprite6Ptr+$2c00
-    sta sprite7Ptr+$2c00
     lda #0
 	sta vic.spriteXMSB		// msb of x
     lda #2
@@ -111,7 +111,7 @@ loop:
 
 irq:
 {
-//    SetBorder(3)
+    SetBorder(3)
 
     jsr SeedRandom
 
@@ -142,7 +142,7 @@ noParal:
 scrollFunc:
     jsr $ffff
     jsr GameLoop
-//    SetBorder(0)
+    SetBorder(0)
     jmp $ea81
 }
 
@@ -469,8 +469,8 @@ initCharSet:
 initMap:
 {
     Store(shooter_map,loop+1)
-    Store($2800,loop+4)
-    Store($2c00,loop+7)
+    Store($2400,loop+4)
+    Store($2800,loop+7)
 
     // copy screen
     ldx #4
@@ -596,16 +596,16 @@ UpdateEnemySprite:
     and #1
     clc
     adc #128+64+4
+    sta sprite3Ptr+$2400
+    sta sprite4Ptr+$2400
+    sta sprite5Ptr+$2400
+    sta sprite6Ptr+$2400
+    sta sprite7Ptr+$2400
     sta sprite3Ptr+$2800
     sta sprite4Ptr+$2800
     sta sprite5Ptr+$2800
     sta sprite6Ptr+$2800
     sta sprite7Ptr+$2800
-    sta sprite3Ptr+$2c00
-    sta sprite4Ptr+$2c00
-    sta sprite5Ptr+$2c00
-    sta sprite6Ptr+$2c00
-    sta sprite7Ptr+$2c00
     rts
 }
 
@@ -667,8 +667,8 @@ activeBullet:
     beq animComplete
     inx
     stx bulletSprite
+    stx sprite2Ptr+$2400
     stx sprite2Ptr+$2800
-    stx sprite2Ptr+$2c00
 animComplete:
     lda bulletX
     bpl noHigh
