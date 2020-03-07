@@ -19,7 +19,7 @@ start:
     sta spriteNumber
 	sta vic.spriteYSize
     lda #255
-	sta vic.spriteXSize
+	sta vic.spriteXSize     // double X size
     adc #128+64
     sta sprite0Ptr
     sta sprite1Ptr
@@ -30,8 +30,8 @@ start:
     sta sprite6Ptr
     sta sprite7Ptr
     lda #128+64
-	sta vic.spriteXMSB		// msb of x
-    lda #7
+	sta vic.spriteXMSB		// msb of x location for all 8 sprites - 7 & 8 on second half
+    lda #2
     sta vic.sprite0Color
     sta vic.sprite1Color
     sta vic.sprite2Color
@@ -47,6 +47,7 @@ start:
     lda #3
     sta vic.borderColor
 
+
     clc
     lda #0
     ldx #0
@@ -54,10 +55,11 @@ initXLoop:
     sta vic.sprite0X,x
     inx
     inx
-    adc #44
+    adc #46
     cpx #16
     bne initXLoop
 
+#if pork
     lda #32
     ldy #0
 clearLoop:
@@ -68,6 +70,7 @@ clearLoop:
     iny
     cpy #240
     bne clearLoop
+#endif
 
 	sei
 	lda #$1b
@@ -136,6 +139,7 @@ ok:
     sta vic.sprite6Y
     sta vic.sprite7Y
 
+    // set sprite image to $3000 + 0..12
     lda spriteNumber
     adc nextLine
     lsr
@@ -143,6 +147,7 @@ ok:
     and #7
     clc
     adc #128+64
+    inc updateLoop2-1
 updateLoop2:
     sta sprite0Ptr
     sta sprite1Ptr
@@ -192,6 +197,6 @@ initspriteloop1:
     bpl initspriteloop1
     rts
 
-    * = $3000 "SpriteTest"
+    * = $3000 "Kangaroo Spirts"
 
-.import binary "BouncingBalls.raw"
+.import binary "Kangaroo.raw"

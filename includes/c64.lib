@@ -39,14 +39,14 @@
     stx loc1+1
 }
 
-.label sprite0Ptr = $3f8
-.label sprite1Ptr = $3f9
-.label sprite2Ptr = $3fa
-.label sprite3Ptr = $3fb
-.label sprite4Ptr = $3fc
-.label sprite5Ptr = $3fd
-.label sprite6Ptr = $3fe
-.label sprite7Ptr = $3ff
+.label sprite0Ptr = $7f8
+.label sprite1Ptr = $7f9
+.label sprite2Ptr = $7fa
+.label sprite3Ptr = $7fb
+.label sprite4Ptr = $7fc
+.label sprite5Ptr = $7fd
+.label sprite6Ptr = $7fe
+.label sprite7Ptr = $7ff
 
 .namespace vic {
     .label sprite0X = $d000

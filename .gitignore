@@ -1,4 +1,8 @@
 *.sym
 *.prg
 *.d64
-
+*.log
+*.dbg
+*.vs
+.*
+buildlog.txt
